@@ -1,0 +1,10 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+   "instructions": [
+    ".ai/AGENTS.md",
+    ".ai/ARCHITECTURE.md",
+    ".ai/CONVENTIONS.md",
+    ".ai/MEMORY.md",
+    ".ai/DESIGN_PRINCIPLES.md"
+  ]
+}
