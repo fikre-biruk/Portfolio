@@ -6,5 +6,8 @@
     ".ai/CONVENTIONS.md",
     ".ai/MEMORY.md",
     ".ai/DESIGN_PRINCIPLES.md"
-  ]
+  ],
+  "indexing": {
+    "enabled": false
+  }
 }
