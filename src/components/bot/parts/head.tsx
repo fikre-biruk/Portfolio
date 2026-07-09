@@ -1,114 +1,125 @@
 import React from "react";
+import { RoundedBox } from "@react-three/drei";
 import { COLORS } from "@/src/lib/colors";
 
 export const Head = () => {
   return (
-    <group position={[0, 1.97, 0]}>
-      {/* Main Head */}
-      <mesh>
-        <boxGeometry args={[0.68, 0.6, 0.56]} />
+    <group position={[0, 1.92, 0]}>
+      {/* Main Head Shell */}
+      <RoundedBox args={[0.6, 0.52, 0.48]} radius={0.05} smoothness={4}>
         <meshStandardMaterial
           color={COLORS.bot}
           roughness={0.12}
           metalness={0.35}
         />
-      </mesh>
+      </RoundedBox>
 
       {/* Front Shell */}
-      <mesh position={[0, 0.01, 0.05]}>
-        <boxGeometry args={[0.6, 0.5, 0.48]} />
+      <RoundedBox
+        args={[0.52, 0.43, 0.42]}
+        radius={0.045}
+        smoothness={4}
+        position={[0, 0.01, 0.05]}
+      >
         <meshStandardMaterial
-          color="#F4F8FD"
+          color={COLORS.panel}
           roughness={0.08}
           metalness={0.12}
         />
-      </mesh>
+      </RoundedBox>
 
-      {/* Visor */}
-      <mesh position={[0, 0.05, 0.285]}>
-        <boxGeometry args={[0.42, 0.2, 0.02]} />
+      {/* Face Display */}
+      <RoundedBox
+        args={[0.38, 0.15, 0.025]}
+        radius={0.04}
+        smoothness={4}
+        position={[0, 0.022, 0.255]}
+      >
         <meshStandardMaterial
-          color="#101827"
-          roughness={0}
-          metalness={1}
+          color={COLORS.bgDeep}
+          roughness={0.05}
+          metalness={0.8}
         />
-      </mesh>
+      </RoundedBox>
 
       {/* Left Eye */}
-      <mesh position={[-0.1, 0.05, 0.3]}>
-        <sphereGeometry args={[0.04, 32, 32]} />
-        <meshStandardMaterial
-          color="#72F7FF"
-          emissive="#72F7FF"
-          emissiveIntensity={10}
+      <mesh position={[-0.088, 0.022, 0.26]}>
+        <sphereGeometry args={[0.036, 32, 32]} />
+        <meshBasicMaterial 
+          color={COLORS.glow}
+          toneMapped={false}
         />
       </mesh>
 
       {/* Right Eye */}
-      <mesh position={[0.1, 0.05, 0.3]}>
-        <sphereGeometry args={[0.04, 32, 32]} />
-        <meshStandardMaterial
-          color="#72F7FF"
-          emissive="#72F7FF"
-          emissiveIntensity={10}
+      <mesh position={[0.088, 0.022, 0.26]}>
+        <sphereGeometry args={[0.036, 32, 32]} />
+        <meshBasicMaterial 
+          color={COLORS.glow}
+          toneMapped={false}
         />
       </mesh>
 
       {/* Mouth Display */}
-      <mesh position={[0, -0.08, 0.3]}>
-        <boxGeometry args={[0.18, 0.03, 0.012]} />
-        <meshStandardMaterial
-          color="#72F7FF"
-          emissive="#72F7FF"
-          emissiveIntensity={4}
+      {/* <mesh position={[0, -0.065, 0.26]}>
+        <boxGeometry args={[0.15, 0.026, 0.011]} />
+        <meshBasicMaterial 
+          color={COLORS.glow}
+          toneMapped={false}
         />
-      </mesh>
+      </mesh> */}
 
       {/* Left Mouth Corner */}
-      <mesh position={[-0.11, -0.08, 0.301]} rotation={[0, 0, -0.45]}>
-        <boxGeometry args={[0.03, 0.01, 0.012]} />
-        <meshStandardMaterial
-          color="#72F7FF"
-          emissive="#72F7FF"
-          emissiveIntensity={4}
+      {/* <mesh position={[-0.095, -0.065, 0.261]} rotation={[0, 0, -0.45]}>
+        <boxGeometry args={[0.026, 0.009, 0.011]} />
+        <meshBasicMaterial 
+          color={COLORS.glow}
+          toneMapped={false}
         />
-      </mesh>
+      </mesh> */}
 
       {/* Right Mouth Corner */}
-      <mesh position={[0.11, -0.08, 0.301]} rotation={[0, 0, 0.45]}>
-        <boxGeometry args={[0.03, 0.01, 0.012]} />
-        <meshStandardMaterial
-          color="#72F7FF"
-          emissive="#72F7FF"
-          emissiveIntensity={4}
+      {/* <mesh position={[0.095, -0.065, 0.261]} rotation={[0, 0, 0.45]}>
+        <boxGeometry args={[0.026, 0.009, 0.011]} />
+        <meshBasicMaterial 
+          color={COLORS.glow}
+          toneMapped={false}
         />
-      </mesh>
+      </mesh> */}
 
       {/* Left Side Panel */}
-      <mesh position={[-0.36, 0, 0]}>
-        <boxGeometry args={[0.05, 0.24, 0.3]} />
+      <RoundedBox
+        args={[0.045, 0.205, 0.26]}
+        radius={0.015}
+        smoothness={4}
+        position={[-0.305, 0, 0]}
+      >
         <meshStandardMaterial
-          color="#D7E2EE"
+          color={COLORS.joint}
           roughness={0.12}
           metalness={0.35}
         />
-      </mesh>
+      </RoundedBox>
 
       {/* Right Side Panel */}
-      <mesh position={[0.36, 0, 0]}>
-        <boxGeometry args={[0.05, 0.24, 0.3]} />
+      <RoundedBox
+        args={[0.045, 0.205, 0.26]}
+        radius={0.015}
+        smoothness={4}
+        position={[0.305, 0, 0]}
+      >
         <meshStandardMaterial
-          color="#D7E2EE"
+          color={COLORS.joint}
           roughness={0.12}
           metalness={0.35}
         />
-      </mesh>
+      </RoundedBox>
 
       {/* Neck */}
-      <mesh position={[0, -0.38, 0]}>
-        <cylinderGeometry args={[0.08, 0.08, 0.14, 24]} />
+      <mesh position={[0, -0.35, 0]}>
+        <cylinderGeometry args={[0.075, 0.075, 0.15, 24]} />
         <meshStandardMaterial
-          color="#BFCBDB"
+          color={COLORS.joint}
           roughness={0.15}
           metalness={0.7}
         />
