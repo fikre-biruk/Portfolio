@@ -1,7 +1,21 @@
+"use client";
+
+import { Head } from "@/src/components/bot/parts/head";
+import { Body } from "@/src/components/bot/parts/body";
+import { ArmLeft } from "@/src/components/bot/parts/armLeft";
+import { ArmRight } from "@/src/components/bot/parts/armRight";
+import { LegLeft } from "@/src/components/bot/parts/legLeft";
+import { LegRight } from "@/src/components/bot/parts/legRight";
+
 export const BotView = () => {
   return (
-    <div className="w-32 h-32 rounded-2xl bg-[#E6EDF7] flex items-center justify-center">
-      <div className="text-[#0B1220] text-3xl">🤖</div>
-    </div>
+    <group position={[0,1,0]}>
+      <Head />
+      <Body />
+      <ArmLeft />
+      <ArmRight />
+      <LegLeft />
+      <LegRight />
+    </group>
   );
-}
+};

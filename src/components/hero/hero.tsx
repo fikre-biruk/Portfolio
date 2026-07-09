@@ -1,4 +1,4 @@
-import { Bot } from "@/src/components/bot/bot";
+import { HeroScene } from "@/src/components/hero/scene/heroScene";
 
 export const Hero = () => {
   return (
@@ -16,7 +16,7 @@ export const Hero = () => {
 
       {/* Right side */}
       <div className="flex items-center justify-center">
-        <Bot />
+        <HeroScene />
       </div>
 
     </section>
