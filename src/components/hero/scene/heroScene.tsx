@@ -5,28 +5,28 @@ import { Bot } from "@/src/components/bot/bot";
 
 export const HeroScene = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="absolute inset-0">
       <Canvas
         camera={{
           position: [0, 1.4, 7],
           fov: 65,
         }}
       >
-        {/* Background color commented out */}
-          <color /*attach="background"*/ args={["#0B1220"]} />
+        <ambientLight intensity={1.2} />
 
-          <ambientLight intensity={1.2} />
-          
-          <directionalLight
-            position={[3, 5, 5]}
-            intensity={2}
-          />
+        <directionalLight
+          position={[3, 5, 5]}
+          intensity={2}
+        />
 
-          {/* Environment */}
+        {/* Environment */}
 
-          {/* Rope */}
+        {/* Rope */}
 
+        {/* Bot Stage */}
+        <group position={[0, -6, 0]}>
           <Bot />
+        </group>
       </Canvas>
     </div>
   );

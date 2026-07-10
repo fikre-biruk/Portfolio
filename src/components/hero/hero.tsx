@@ -2,23 +2,30 @@ import { HeroScene } from "@/src/components/hero/scene/heroScene";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-between px-16">
-      
-      {/* Left side */}
-      <div className="flex flex-col gap-4">
-        <h1 className="text-5xl font-bold">Your Name</h1>
-        <p className="text-lg text-zinc-400">Creative Developer</p>
+    <section className="relative min-h-screen overflow-hidden">
+      <HeroScene />
 
-        <button className="mt-4 px-6 py-3 rounded-xl bg-white text-black w-fit">
-          Explore
-        </button>
+      {/* Stage Layer */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <div className="relative w-full h-full">
+          {/* Text Stage */}
+          <div
+            className="
+              absolute
+              left-1/2
+              top-1/2
+              -translate-x-1/2
+              -translate-y-[220%]
+            "
+          >
+            <div className="flex flex-col items-center gap-4 text-center">
+              <h1 className="text-5xl font-bold text-textPrimary">
+                Your Name
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* Right side */}
-      <div className="flex items-center justify-center">
-        <HeroScene />
-      </div>
-
     </section>
   );
-}
+};

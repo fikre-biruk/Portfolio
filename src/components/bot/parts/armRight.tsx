@@ -1,4 +1,5 @@
 import React from "react";
+import { RoundedBox } from "@react-three/drei";
 import { COLORS } from "@/src/lib/colors";
 
 export const ArmRight = () => {
@@ -24,7 +25,7 @@ export const ArmRight = () => {
         />
       </mesh>
 
-      {/* Elbow Joint */}
+      {/* Elbow */}
       <mesh position={[0, -0.32, 0]}>
         <sphereGeometry args={[0.05, 32, 32]} />
         <meshStandardMaterial
@@ -44,15 +45,60 @@ export const ArmRight = () => {
         />
       </mesh>
 
-      {/* Hand */}
-      <mesh position={[0, -0.565, 0]} scale={[1, 0.8, 0.65]}>
-        <sphereGeometry args={[0.065, 24, 24]} />
+      {/* Wrist */}
+      <mesh position={[0, -0.58, 0]}>
+        <sphereGeometry args={[0.038, 24, 24]} />
         <meshStandardMaterial
-          color={COLORS.bot}
-          roughness={0.35}
-          metalness={0.15}
+          color="{COLORS.joint}"
+          metalness={0.7}
+          roughness={0.15}
         />
       </mesh>
+
+      {/* Palm */}
+      <RoundedBox
+        args={[0.09, 0.06, 0.08]}
+        radius={0.02}
+        smoothness={4}
+        position={[0, -0.65, 0]}
+      >
+        <meshStandardMaterial
+          color="{COLORS.panel}"
+          roughness={0.18}
+          metalness={0.3}
+        />
+      </RoundedBox>
+
+      {/* Thumb */}
+      <RoundedBox
+        args={[0.025, 0.06, 0.025]}
+        radius={0.01}
+        smoothness={4}
+        position={[0.045, -0.64, 0.015]}
+        rotation={[0, 0, 0.55]}
+      >
+        <meshStandardMaterial color={COLORS.bot} />
+      </RoundedBox>
+
+      {/* Left Finger */}
+      <RoundedBox
+        args={[0.02, 0.075, 0.02]}
+        radius={0.01}
+        smoothness={4}
+        position={[-0.018, -0.72, 0]}
+      >
+        <meshStandardMaterial color={COLORS.bot} />
+      </RoundedBox>
+
+      {/* Right Finger */}
+      <RoundedBox
+        args={[0.02, 0.075, 0.02]}
+        radius={0.01}
+        smoothness={4}
+        position={[0.018, -0.72, 0]}
+      >
+        <meshStandardMaterial color={COLORS.bot} />
+      </RoundedBox>
     </group>
   );
 };

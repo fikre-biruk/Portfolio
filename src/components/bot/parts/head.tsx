@@ -1,8 +1,17 @@
 import React from "react";
 import { RoundedBox } from "@react-three/drei";
 import { COLORS } from "@/src/lib/colors";
+import * as THREE from "three";
 
-export const Head = () => {
+type HeadProps = {
+  leftEyeRef?: React.RefObject<THREE.Mesh | null>;
+  rightEyeRef?: React.RefObject<THREE.Mesh | null>;
+};
+
+export const Head = ({
+  leftEyeRef,
+  rightEyeRef,
+}: HeadProps) => {
   return (
     <group position={[0, 1.92, 0]}>
       {/* Main Head Shell */}
@@ -43,7 +52,10 @@ export const Head = () => {
       </RoundedBox>
 
       {/* Left Eye */}
-      <mesh position={[-0.088, 0.022, 0.26]}>
+      <mesh 
+        ref={leftEyeRef}
+        position={[-0.088, 0.022, 0.26]}
+      >
         <sphereGeometry args={[0.036, 32, 32]} />
         <meshBasicMaterial 
           color={COLORS.glow}
@@ -52,40 +64,16 @@ export const Head = () => {
       </mesh>
 
       {/* Right Eye */}
-      <mesh position={[0.088, 0.022, 0.26]}>
+      <mesh 
+        ref={rightEyeRef}
+        position={[0.088, 0.022, 0.26]}
+      >
         <sphereGeometry args={[0.036, 32, 32]} />
         <meshBasicMaterial 
           color={COLORS.glow}
           toneMapped={false}
         />
       </mesh>
-
-      {/* Mouth Display */}
-      {/* <mesh position={[0, -0.065, 0.26]}>
-        <boxGeometry args={[0.15, 0.026, 0.011]} />
-        <meshBasicMaterial 
-          color={COLORS.glow}
-          toneMapped={false}
-        />
-      </mesh> */}
-
-      {/* Left Mouth Corner */}
-      {/* <mesh position={[-0.095, -0.065, 0.261]} rotation={[0, 0, -0.45]}>
-        <boxGeometry args={[0.026, 0.009, 0.011]} />
-        <meshBasicMaterial 
-          color={COLORS.glow}
-          toneMapped={false}
-        />
-      </mesh> */}
-
-      {/* Right Mouth Corner */}
-      {/* <mesh position={[0.095, -0.065, 0.261]} rotation={[0, 0, 0.45]}>
-        <boxGeometry args={[0.026, 0.009, 0.011]} />
-        <meshBasicMaterial 
-          color={COLORS.glow}
-          toneMapped={false}
-        />
-      </mesh> */}
 
       {/* Left Side Panel */}
       <RoundedBox
