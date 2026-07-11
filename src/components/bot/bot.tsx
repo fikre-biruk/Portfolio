@@ -1,9 +1,9 @@
-import { BotView } from "@/src/components/bot/botView";
+import { Spine } from "@/src/components/bot/spine";
 
 export const Bot = () => {
   return (
     <group position={[0, 0, 0]}>
-      <BotView />
+      <Spine />
     </group>
   );
 };

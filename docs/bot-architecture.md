@@ -111,18 +111,18 @@ The actor doesn't know:
 
 where the camera is
 where the audience sits
-3. BotView — The Character Builder
+3. Spine — The Character Builder
 Main question it answers:
 
 "How is this character visually assembled?"
 
-BotView is the visual construction layer.
+Spine is the visual construction layer.
 
 It takes pieces and creates one character.
 
 Example:
 
-Before BotView:
+Before Spine:
 
 Head
 
@@ -134,7 +134,7 @@ Right Arm
 
 They are just separate objects.
 
-BotView creates:
+Spine creates:
 
         Head
 
@@ -143,7 +143,7 @@ BotView creates:
     Arm      Arm
      |        |
    Leg      Leg
-BotView controls:
+Spine controls:
 Where parts attach
 Relative positions
 Character proportions
@@ -158,7 +158,7 @@ Arms:
 
 Legs:
 + below body
-BotView does NOT control:
+Spine does NOT control:
 
 ❌ animation behavior
 ❌ rope physics
@@ -281,7 +281,7 @@ Bot
 
     ↓
 
-BotView
+Spine
 
     ↓
 
@@ -324,7 +324,7 @@ Moves:
 
 "Lean backward"
 
-BotView
+Spine
 
 Keeps:
 
@@ -341,6 +341,46 @@ Simple rule to remember
 System	Question
 HeroScene	Where does everything exist?
 Bot	What is the character?
-BotView	How is the character assembled?
+Spine	How is the character assembled?
 Spine	How does the character move?
 Parts	What does the character look like?
+
+
+The structure can become simple because in the current version we don't need Spine but later if i
+think later have multiple visual versions of the bot (skins, damaged state, holiday theme, etc.), then Spine could still make sense.
+
+But for now use this
+page
+└── Hero
+    └── HeroScene
+         └── Bot
+              └── Spine
+                   ├── Head
+                   ├── Body
+                   ├── LeftArm
+                   ├── RightArm
+                   ├── LeftLeg
+                   └── RightLeg
+
+
+About core folder
+core/ is not a folder for visual components.
+It is for shared infrastructure.
+
+Think of it like this:
+
+parts/      → visible things
+core/       → invisible support systems
+
+Examples of things that belong in core/:
+
+shared constants
+shared types
+math helpers
+animation helpers
+configuration
+
+Notice something:
+
+None of those render anything.
+
